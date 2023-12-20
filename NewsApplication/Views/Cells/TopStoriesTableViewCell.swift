@@ -14,12 +14,12 @@ class TopStoriesTableViewCell: UITableViewCell {
         String(describing: TopStoriesTableViewCell.self)
     }
     
-    private let containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .red
-        view.layer.cornerRadius = 4
-        return view
+    lazy var collectionView: UICollectionView = {
+        let layout = TopStoriesCollectionViewLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(TopStoriesCollectionViewCell.self, forCellWithReuseIdentifier: TopStoriesCollectionViewCell.identifier)
+        return collectionView
     }()
     
     private let linkLabel: UILabel = {
@@ -54,6 +54,8 @@ class TopStoriesTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setup()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     required init?(coder: NSCoder) {
@@ -65,18 +67,18 @@ class TopStoriesTableViewCell: UITableViewCell {
 private extension TopStoriesTableViewCell {
     
     func setup() {
-        contentView.addSubviews(containerView, linkLabel, titleLabel, timeStampLabel)
+        contentView.addSubviews(collectionView, linkLabel, titleLabel, timeStampLabel)
         
         NSLayoutConstraint.activate([
             // Container View
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            containerView.heightAnchor.constraint(equalToConstant: 200),
-            containerView.widthAnchor.constraint(equalToConstant: 350),
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            collectionView.heightAnchor.constraint(equalToConstant: 200),
+            collectionView.widthAnchor.constraint(equalToConstant: 350),
             
             // Link Label
-            linkLabel.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 12),
+            linkLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 12),
             linkLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
             // Title Label
@@ -87,9 +89,25 @@ private extension TopStoriesTableViewCell {
             timeStampLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             timeStampLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             timeStampLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24)
-            
         ])
     }
+}
+
+
+// MARK: UICollectionView Data Source & Delegate Related Methods
+extension TopStoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: TopStoriesCollectionViewCell.identifier,
+            for: indexPath
+        ) as? TopStoriesCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        return cell
+    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
 }

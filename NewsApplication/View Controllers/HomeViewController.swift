@@ -107,6 +107,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch Sections(rawValue: indexPath.section) {
         case .topStories:
             guard let topStoriesCell = tableView.dequeueReusableCell(withIdentifier: TopStoriesTableViewCell.cellIdentifier) as? TopStoriesTableViewCell else { return UITableViewCell() }
+            topStoriesCell.collectionView.delegate = topStoriesCell
+            topStoriesCell.collectionView.dataSource = topStoriesCell
             cell = topStoriesCell
             break
         case .highlights:
