@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(TopStoriesTableViewCell.self, forCellReuseIdentifier: TopStoriesTableViewCell.cellIdentifier)
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.cellIdentifier)
         tableView.register(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: SectionHeaderView.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +89,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch Sections(rawValue: section) {
         case .topStories:
-            return 4
+            return 1
         case .highlights:
             return results?.results.count ?? 0
         default:
@@ -101,15 +102,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.cellIdentifier) as? HomeTableViewCell else { return UITableViewCell() }
+        var cell = UITableViewCell(frame: .zero)
         
         switch Sections(rawValue: indexPath.section) {
         case .topStories:
-            cell.configure(result: .init(title: "Hello World", link: "Hello World"))
+            guard let topStoriesCell = tableView.dequeueReusableCell(withIdentifier: TopStoriesTableViewCell.cellIdentifier) as? TopStoriesTableViewCell else { return UITableViewCell() }
+            cell = topStoriesCell
+            break
         case .highlights:
-            cell.configure(result: results?.results[indexPath.row])
+            guard let homeTableCell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.cellIdentifier) as? HomeTableViewCell else { return UITableViewCell() }
+            
+            homeTableCell.configure(result: results?.results[indexPath.row])
+            cell = homeTableCell
+            break
         default:
-            return cell
+            break
         }
         
         return cell

@@ -16,6 +16,8 @@
 		767354902B321A500073BB9A /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7673548F2B321A500073BB9A /* HomeTableViewCell.swift */; };
 		767354922B3269500073BB9A /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354912B3269500073BB9A /* SectionHeaderView.swift */; };
 		767354992B334DC70073BB9A /* TopStoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354982B334DC70073BB9A /* TopStoriesTableViewCell.swift */; };
+		7673549C2B334FA70073BB9A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7673549B2B334FA70073BB9A /* UIColor+Extension.swift */; };
+		7673549E2B334FCE0073BB9A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7673549D2B334FCE0073BB9A /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		7673548F2B321A500073BB9A /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		767354912B3269500073BB9A /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		767354982B334DC70073BB9A /* TopStoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesTableViewCell.swift; sourceTree = "<group>"; };
+		7673549B2B334FA70073BB9A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7673549D2B334FCE0073BB9A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 		767354782B31F99B0073BB9A /* NewsApplication */ = {
 			isa = PBXGroup;
 			children = (
+				7673549A2B334F9B0073BB9A /* Extensions */,
 				767354952B3347FE0073BB9A /* Views */,
 				767354792B31F99B0073BB9A /* AppDelegate.swift */,
 				7673547B2B31F99B0073BB9A /* SceneDelegate.swift */,
@@ -98,6 +103,15 @@
 				767354982B334DC70073BB9A /* TopStoriesTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7673549A2B334F9B0073BB9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7673549B2B334FA70073BB9A /* UIColor+Extension.swift */,
+				7673549D2B334FCE0073BB9A /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,10 +187,12 @@
 				7673548E2B3203590073BB9A /* NewsModel.swift in Sources */,
 				767354902B321A500073BB9A /* HomeTableViewCell.swift in Sources */,
 				7673547E2B31F99B0073BB9A /* HomeViewController.swift in Sources */,
+				7673549E2B334FCE0073BB9A /* UIView+Extension.swift in Sources */,
 				7673547A2B31F99B0073BB9A /* AppDelegate.swift in Sources */,
 				767354922B3269500073BB9A /* SectionHeaderView.swift in Sources */,
 				7673547C2B31F99B0073BB9A /* SceneDelegate.swift in Sources */,
 				767354992B334DC70073BB9A /* TopStoriesTableViewCell.swift in Sources */,
+				7673549C2B334FA70073BB9A /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

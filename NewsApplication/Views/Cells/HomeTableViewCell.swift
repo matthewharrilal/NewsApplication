@@ -112,17 +112,6 @@ private extension HomeTableViewCell {
             thumbnailImageView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10),
             thumbnailImageView.widthAnchor.constraint(equalToConstant: 80),
             thumbnailImageView.heightAnchor.constraint(equalToConstant: 80)
-            
-            
-        
         ])
     }
 }
-
-extension UIView {
-    
-    func addSubviews(_ subviews: UIView...) {
-        subviews.forEach { addSubview($0) }
-    }
-}
-
