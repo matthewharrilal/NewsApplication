@@ -13,18 +13,16 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     static var identifier: String {
         String(describing: SectionHeaderView.self)
     }
-    
+        
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
     private let detailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
     
@@ -41,6 +39,19 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     func configureLabels(title: String, detail: String) {
         titleLabel.text = title
         detailLabel.text = detail
+    }
+    
+    func updateLabelStyle(style: Sections) {
+        switch style {
+        case .topStories:
+            titleLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+            titleLabel.textColor = UIColor(hex: "#9095A0FF")
+            detailLabel.font = .systemFont(ofSize: 20, weight: .bold)
+            break
+        case .highlights:
+            detailLabel.font = .systemFont(ofSize: 24, weight: .bold)
+            break
+        }
     }
 }
 

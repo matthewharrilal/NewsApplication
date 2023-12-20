@@ -7,12 +7,12 @@
 
 import UIKit
 
+enum Sections: Int, CaseIterable {
+    case topStories
+    case highlights
+}
+
 class HomeViewController: UIViewController {
-    
-    enum Sections: Int, CaseIterable {
-        case topStories
-        case highlights
-    }
     
     private var results: Results? {
         didSet {
@@ -128,9 +128,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch Sections(rawValue: section) {
         case .topStories:
             headerView.configureLabels(title: "Monday, September 21st", detail: "Top Stories")
+            headerView.updateLabelStyle(style: .topStories)
             break
         case .highlights:
             headerView.configureLabels(title: "", detail: "Highlights")
+            headerView.updateLabelStyle(style: .highlights)
             break
         default:
             break
