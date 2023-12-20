@@ -14,6 +14,8 @@ class TopStoriesTableViewCell: UITableViewCell {
         String(describing: TopStoriesTableViewCell.self)
     }
     
+    var onTap: ((CGRect) -> Void)?
+    
     lazy var collectionView: UICollectionView = {
         let layout = TopStoriesCollectionViewLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -109,5 +111,22 @@ extension TopStoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard
+            let cell = collectionView.cellForItem(at: indexPath),
+            let startingFrame = cell.superview?.convert(cell.frame, to: nil)
+        else { return }
+        
+        onTap?(startingFrame)
+        
+//        let topStoriesDetailViewController = TopStoriesDetailViewController(startingFrame: startingFrame)
+//        topStoriesDetailViewController.view.frame = startingFrame
+//        contentView.addSubview(topStoriesDetailViewController.view)
+//        
+//        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut) {
+//            topStoriesDetailViewController.view.frame = UIScreen.main.bounds
+//        }
     }
 }

@@ -109,6 +109,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             guard let topStoriesCell = tableView.dequeueReusableCell(withIdentifier: TopStoriesTableViewCell.cellIdentifier) as? TopStoriesTableViewCell else { return UITableViewCell() }
             topStoriesCell.collectionView.delegate = topStoriesCell
             topStoriesCell.collectionView.dataSource = topStoriesCell
+            
+            topStoriesCell.onTap = { [weak self] startingFrame in
+                self?.presentTopStoriesDetailViewController(startingFrame)
+            }
+            
             cell = topStoriesCell
             break
         case .highlights:
@@ -169,6 +174,22 @@ private extension HomeViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    func presentTopStoriesDetailViewController(_ startingFrame: CGRect) {
+        let topStoriesDetailViewController = TopStoriesDetailViewController(startingFrame: startingFrame)
+        
+        addChild(topStoriesDetailViewController)
+        topStoriesDetailViewController.view.frame = startingFrame
+        
+        view.addSubview(topStoriesDetailViewController.view)
+        topStoriesDetailViewController.didMove(toParent: self)
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut) { [weak self] in
+            guard let frame = self?.view.frame else { return }
+            
+            topStoriesDetailViewController.view.frame = frame
+        }
     }
 }
 
