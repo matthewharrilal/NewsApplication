@@ -190,6 +190,16 @@ private extension HomeViewController {
             
             topStoriesDetailViewController.view.frame = frame
         }
+        
+        topStoriesDetailViewController.onTap = {
+            UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn) {
+                topStoriesDetailViewController.view.frame = startingFrame
+            } completion: { _ in
+                topStoriesDetailViewController.willMove(toParent: nil)
+                topStoriesDetailViewController.view.removeFromSuperview()
+                topStoriesDetailViewController.removeFromParent()
+            }
+        }
     }
 }
 
