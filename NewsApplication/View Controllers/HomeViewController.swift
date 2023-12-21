@@ -26,6 +26,12 @@ class HomeViewController: UIViewController {
         static let newsURL: URL? = URL(string: "https://newsdata.io/api/1/news?apikey=pub_350683d632477728ccfb7555f19d1165a9524&q=volcano")
     }
     
+    private let homeHeaderView: HomeHeaderView = {
+        let headerView = HomeHeaderView()
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        return headerView
+    }()
+    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(TopStoriesTableViewCell.self, forCellReuseIdentifier: TopStoriesTableViewCell.cellIdentifier)
@@ -163,13 +169,19 @@ private extension HomeViewController {
     }
     
     func setupTableView() {
-        view.addSubview(tableView)
+        view.addSubviews(homeHeaderView, tableView)
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .white
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            // Home Header View
+            homeHeaderView.topAnchor.constraint(equalTo: view.topAnchor),
+            homeHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            homeHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            // Table View
+            tableView.topAnchor.constraint(equalTo: homeHeaderView.bottomAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -192,7 +204,7 @@ private extension HomeViewController {
         }
         
         topStoriesDetailViewController.onTap = {
-            UIView.animate(withDuration: 0.9, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn) {
+            UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn) {
                 topStoriesDetailViewController.view.frame = startingFrame
             } completion: { _ in
                 topStoriesDetailViewController.willMove(toParent: nil)

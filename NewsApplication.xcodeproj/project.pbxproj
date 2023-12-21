@@ -21,6 +21,7 @@
 		767354A22B336AA50073BB9A /* TopStoriesCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354A12B336AA50073BB9A /* TopStoriesCollectionViewLayout.swift */; };
 		767354A72B336C640073BB9A /* TopStoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354A62B336C640073BB9A /* TopStoriesCollectionViewCell.swift */; };
 		767354A92B33B0E90073BB9A /* TopStoriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354A82B33B0E90073BB9A /* TopStoriesDetailViewController.swift */; };
+		767354AB2B33C01E0073BB9A /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354AA2B33C01E0073BB9A /* HomeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		767354A12B336AA50073BB9A /* TopStoriesCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesCollectionViewLayout.swift; sourceTree = "<group>"; };
 		767354A62B336C640073BB9A /* TopStoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		767354A82B33B0E90073BB9A /* TopStoriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesDetailViewController.swift; sourceTree = "<group>"; };
+		767354AA2B33C01E0073BB9A /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				767354912B3269500073BB9A /* SectionHeaderView.swift */,
+				767354AA2B33C01E0073BB9A /* HomeHeaderView.swift */,
 			);
 			path = "Header Views";
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				767354A72B336C640073BB9A /* TopStoriesCollectionViewCell.swift in Sources */,
 				767354A22B336AA50073BB9A /* TopStoriesCollectionViewLayout.swift in Sources */,
+				767354AB2B33C01E0073BB9A /* HomeHeaderView.swift in Sources */,
 				7673548E2B3203590073BB9A /* NewsModel.swift in Sources */,
 				767354902B321A500073BB9A /* HomeTableViewCell.swift in Sources */,
 				7673547E2B31F99B0073BB9A /* HomeViewController.swift in Sources */,
