@@ -30,6 +30,8 @@ class SearchViewController: UIViewController {
         tableView.register(SearchTopicTableViewCell.self, forCellReuseIdentifier: SearchTopicTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .white
         return tableView
     }()
     
@@ -79,7 +81,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell = recentCell
             break
         case .topics:
-            guard let topicCell = tableView.dequeueReusableCell(withIdentifier: SearchTopicTableViewCell.identifier, for: indexPath) as? SearchRecentTableViewCell else { return cell }
+            guard let topicCell = tableView.dequeueReusableCell(withIdentifier: SearchTopicTableViewCell.identifier, for: indexPath) as? SearchTopicTableViewCell else { return cell }
             cell = topicCell
             break
         default:
@@ -102,6 +104,20 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             return 4
         default:
             return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch SearchSections(rawValue: section) {
+        case .recent:
+            return UIView()
+        case .topics:
+            let headerView = SectionHeaderView()
+            headerView.configureLabels(title: "", detail: "Topics")
+            headerView.updateLabelStyle(style: .highlights)
+            return headerView
+        default:
+            return UIView()
         }
     }
 }

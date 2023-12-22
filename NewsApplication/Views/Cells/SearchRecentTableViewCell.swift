@@ -51,7 +51,7 @@ private extension SearchRecentTableViewCell {
             clockIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             clockIcon.heightAnchor.constraint(equalToConstant: 24),
             clockIcon.widthAnchor.constraint(equalToConstant: 24),
-            clockIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+            clockIcon.topAnchor.constraint(equalTo: contentView.topAnchor),
             
             // Title Label
             titleLabel.leadingAnchor.constraint(equalTo: clockIcon.trailingAnchor, constant: 29),
