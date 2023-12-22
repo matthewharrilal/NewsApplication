@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
         }
     }
     
+    let searchTransitionDelegate = SearchTransitionDelegate()
+    
     enum Constants {
         static let newsURL: URL? = URL(string: "https://newsdata.io/api/1/news?apikey=pub_350683d632477728ccfb7555f19d1165a9524&q=volcano")
     }
@@ -173,6 +175,14 @@ private extension HomeViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .white
+        
+        // MARK: TODO Move logic here to be encapsulated elsewhere
+        homeHeaderView.onTap = { [weak self] in
+            let searchVC = SearchViewController()
+            searchVC.modalPresentationStyle = .custom
+            searchVC.transitioningDelegate = self?.searchTransitionDelegate
+            self?.present(searchVC, animated: true, completion: nil)
+        }
         
         NSLayoutConstraint.activate([
             // Home Header View

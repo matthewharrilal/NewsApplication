@@ -120,13 +120,5 @@ extension TopStoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
         else { return }
         
         onTap?(startingFrame)
-        
-//        let topStoriesDetailViewController = TopStoriesDetailViewController(startingFrame: startingFrame)
-//        topStoriesDetailViewController.view.frame = startingFrame
-//        contentView.addSubview(topStoriesDetailViewController.view)
-//        
-//        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut) {
-//            topStoriesDetailViewController.view.frame = UIScreen.main.bounds
-//        }
     }
 }
