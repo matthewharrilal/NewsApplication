@@ -27,6 +27,7 @@
 		767354AB2B33C01E0073BB9A /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767354AA2B33C01E0073BB9A /* HomeHeaderView.swift */; };
 		769EEA2A2B34FA8B007CDCAB /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA292B34FA8B007CDCAB /* SearchHeaderView.swift */; };
 		769EEA2E2B350EC2007CDCAB /* SearchRecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA2D2B350EC2007CDCAB /* SearchRecentTableViewCell.swift */; };
+		769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		767354AA2B33C01E0073BB9A /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		769EEA292B34FA8B007CDCAB /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 		769EEA2D2B350EC2007CDCAB /* SearchRecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentTableViewCell.swift; sourceTree = "<group>"; };
+		769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				767354982B334DC70073BB9A /* TopStoriesTableViewCell.swift */,
 				767354A62B336C640073BB9A /* TopStoriesCollectionViewCell.swift */,
 				769EEA2D2B350EC2007CDCAB /* SearchRecentTableViewCell.swift */,
+				769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				7673549E2B334FCE0073BB9A /* UIView+Extension.swift in Sources */,
 				769EEA2A2B34FA8B007CDCAB /* SearchHeaderView.swift in Sources */,
 				7673547A2B31F99B0073BB9A /* AppDelegate.swift in Sources */,
+				769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */,
 				764D087A2B34ED750076C004 /* SearchViewController.swift in Sources */,
 				767354922B3269500073BB9A /* SectionHeaderView.swift in Sources */,
 				7673547C2B31F99B0073BB9A /* SceneDelegate.swift in Sources */,

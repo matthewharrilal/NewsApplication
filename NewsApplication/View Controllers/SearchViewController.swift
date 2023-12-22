@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+enum SearchSections: Int, CaseIterable {
+    case recent
+    case topics
+}
+
 class SearchViewController: UIViewController {
+    
+    private var section: SearchSections = .recent
     
     private let searchHeaderView: SearchHeaderView = {
         let view = SearchHeaderView()
@@ -19,7 +26,10 @@ class SearchViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        tableView.register(SearchRecentTableViewCell.self, forCellReuseIdentifier: SearchRecentTableViewCell.identifier)
+        tableView.register(SearchTopicTableViewCell.self, forCellReuseIdentifier: SearchTopicTableViewCell.identifier)
+        tableView.delegate = self
+        tableView.dataSource = self
         return tableView
     }()
     
@@ -59,4 +69,39 @@ private extension SearchViewController {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        
+        switch SearchSections(rawValue: indexPath.section) {
+        case .recent:
+            guard let recentCell = tableView.dequeueReusableCell(withIdentifier: SearchRecentTableViewCell.identifier, for: indexPath) as? SearchRecentTableViewCell else { return cell }
+            
+            cell = recentCell
+            break
+        case .topics:
+            guard let topicCell = tableView.dequeueReusableCell(withIdentifier: SearchTopicTableViewCell.identifier, for: indexPath) as? SearchRecentTableViewCell else { return cell }
+            cell = topicCell
+            break
+        default:
+            break
+        }
+        
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return SearchSections.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch SearchSections(rawValue: section) {
+        case .recent:
+            return 3
+        case .topics:
+            return 4
+        default:
+            return 0
+        }
+    }
 }

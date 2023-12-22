@@ -1,5 +1,5 @@
 //
-//  SearchRecentTableViewCell.swift
+//  SearchTopicTableViewCell.swift
 //  NewsApplication
 //
 //  Created by Space Wizard on 12/21/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SearchRecentTableViewCell: UITableViewCell {
+class SearchTopicTableViewCell: UITableViewCell {
     
     private var clockIcon: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "clock"))
@@ -26,8 +26,16 @@ class SearchRecentTableViewCell: UITableViewCell {
         return label
     }()
     
+    private var bookmarkIcon: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "bookmark"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+
+    
     static var identifier: String {
-        String(describing: SearchRecentTableViewCell.self)
+        String(describing: SearchTopicTableViewCell.self)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,10 +49,10 @@ class SearchRecentTableViewCell: UITableViewCell {
     }
 }
 
-private extension SearchRecentTableViewCell {
+private extension SearchTopicTableViewCell {
     
     func setup() {
-        contentView.addSubviews(clockIcon, titleLabel)
+        contentView.addSubviews(clockIcon, titleLabel, bookmarkIcon)
         
         NSLayoutConstraint.activate([
             // Clock Icon
@@ -55,7 +63,12 @@ private extension SearchRecentTableViewCell {
             
             // Title Label
             titleLabel.leadingAnchor.constraint(equalTo: clockIcon.trailingAnchor, constant: 29),
-            titleLabel.centerYAnchor.constraint(equalTo: clockIcon.centerYAnchor)
+            titleLabel.centerYAnchor.constraint(equalTo: clockIcon.centerYAnchor),
+            
+            // Bookmark Icon
+            bookmarkIcon.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
+            bookmarkIcon.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
         ])
     }
 }
+
