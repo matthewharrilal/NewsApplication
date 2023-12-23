@@ -28,6 +28,8 @@
 		769EEA2A2B34FA8B007CDCAB /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA292B34FA8B007CDCAB /* SearchHeaderView.swift */; };
 		769EEA2E2B350EC2007CDCAB /* SearchRecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA2D2B350EC2007CDCAB /* SearchRecentTableViewCell.swift */; };
 		769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */; };
+		769EEA322B360844007CDCAB /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA312B360844007CDCAB /* MenuTableViewController.swift */; };
+		769EEA342B360964007CDCAB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA332B360964007CDCAB /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		769EEA292B34FA8B007CDCAB /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
 		769EEA2D2B350EC2007CDCAB /* SearchRecentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentTableViewCell.swift; sourceTree = "<group>"; };
 		769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicTableViewCell.swift; sourceTree = "<group>"; };
+		769EEA312B360844007CDCAB /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		769EEA332B360964007CDCAB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				767354A62B336C640073BB9A /* TopStoriesCollectionViewCell.swift */,
 				769EEA2D2B350EC2007CDCAB /* SearchRecentTableViewCell.swift */,
 				769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */,
+				769EEA332B360964007CDCAB /* MenuTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				7673547D2B31F99B0073BB9A /* HomeViewController.swift */,
 				767354A82B33B0E90073BB9A /* TopStoriesDetailViewController.swift */,
 				764D08792B34ED750076C004 /* SearchViewController.swift */,
+				769EEA312B360844007CDCAB /* MenuTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 			files = (
 				767354A72B336C640073BB9A /* TopStoriesCollectionViewCell.swift in Sources */,
 				767354A22B336AA50073BB9A /* TopStoriesCollectionViewLayout.swift in Sources */,
+				769EEA342B360964007CDCAB /* MenuTableViewCell.swift in Sources */,
 				767354AB2B33C01E0073BB9A /* HomeHeaderView.swift in Sources */,
 				7673548E2B3203590073BB9A /* NewsModel.swift in Sources */,
 				767354902B321A500073BB9A /* HomeTableViewCell.swift in Sources */,
@@ -249,6 +256,7 @@
 				7673549E2B334FCE0073BB9A /* UIView+Extension.swift in Sources */,
 				769EEA2A2B34FA8B007CDCAB /* SearchHeaderView.swift in Sources */,
 				7673547A2B31F99B0073BB9A /* AppDelegate.swift in Sources */,
+				769EEA322B360844007CDCAB /* MenuTableViewController.swift in Sources */,
 				769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */,
 				764D087A2B34ED750076C004 /* SearchViewController.swift in Sources */,
 				767354922B3269500073BB9A /* SectionHeaderView.swift in Sources */,
