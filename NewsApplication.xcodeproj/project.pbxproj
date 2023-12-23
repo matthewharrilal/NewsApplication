@@ -30,6 +30,7 @@
 		769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */; };
 		769EEA322B360844007CDCAB /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA312B360844007CDCAB /* MenuTableViewController.swift */; };
 		769EEA342B360964007CDCAB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA332B360964007CDCAB /* MenuTableViewCell.swift */; };
+		769EEA362B374D62007CDCAB /* MenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA352B374D62007CDCAB /* MenuPresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		769EEA2F2B35118F007CDCAB /* SearchTopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopicTableViewCell.swift; sourceTree = "<group>"; };
 		769EEA312B360844007CDCAB /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		769EEA332B360964007CDCAB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		769EEA352B374D62007CDCAB /* MenuPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				764D087C2B34EE430076C004 /* SearchTransitionAnimator.swift */,
 				764D087E2B34EFB20076C004 /* SearchTransitionDelegate.swift */,
+				769EEA352B374D62007CDCAB /* MenuPresentationController.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				7673549E2B334FCE0073BB9A /* UIView+Extension.swift in Sources */,
 				769EEA2A2B34FA8B007CDCAB /* SearchHeaderView.swift in Sources */,
 				7673547A2B31F99B0073BB9A /* AppDelegate.swift in Sources */,
+				769EEA362B374D62007CDCAB /* MenuPresentationController.swift in Sources */,
 				769EEA322B360844007CDCAB /* MenuTableViewController.swift in Sources */,
 				769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */,
 				764D087A2B34ED750076C004 /* SearchViewController.swift in Sources */,

@@ -118,8 +118,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             topStoriesCell.collectionView.delegate = topStoriesCell
             topStoriesCell.collectionView.dataSource = topStoriesCell
             
-            topStoriesCell.onTap = { [weak self] startingFrame in
+            topStoriesCell.onTapCell = { [weak self] startingFrame in
                 self?.presentTopStoriesDetailViewController(startingFrame)
+            }
+            
+            topStoriesCell.onTapMenuButton = { [weak self] startingFrame in
+                self?.presentMenuViewController(startingFrame)
             }
             
             cell = topStoriesCell
@@ -222,6 +226,21 @@ private extension HomeViewController {
                 topStoriesDetailViewController.removeFromParent()
             }
         }
+    }
+    
+    func presentMenuViewController(_ startingFrame: CGRect) {
+        let presentedViewController = MenuTableViewController(style: .plain)
+        
+//        let presentationController = MenuPresentationController(
+//            presentedViewController: presentedViewController,
+//            presentingViewController: self,
+//            startingFrame: startingFrame
+//        )
+        
+        searchTransitionDelegate.startingFrame = startingFrame
+        presentedViewController.transitioningDelegate = searchTransitionDelegate
+        presentedViewController.modalPresentationStyle = .custom
+        present(presentedViewController, animated: true)
     }
 }
 

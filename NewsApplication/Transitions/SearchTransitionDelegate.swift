@@ -12,6 +12,12 @@ class SearchTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate 
     
     var searchTransitionAnimator = SearchTransitionAnimator()
     
+    var startingFrame: CGRect = .zero
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return MenuPresentationController(presentedViewController: presented, presentingViewController: presenting, startingFrame: startingFrame)
+    }
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         searchTransitionAnimator.transitioningForward = true

@@ -14,7 +14,8 @@ class TopStoriesTableViewCell: UITableViewCell {
         String(describing: TopStoriesTableViewCell.self)
     }
     
-    var onTap: ((CGRect) -> Void)?
+    var onTapCell: ((CGRect) -> Void)?
+    var onTapMenuButton: ((CGRect) -> Void)?
     
     lazy var collectionView: UICollectionView = {
         let layout = TopStoriesCollectionViewLayout()
@@ -52,6 +53,16 @@ class TopStoriesTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var menuButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.backgroundColor = UIColor.lightGray.cgColor
+        button.setImage(UIImage(named: "slider"), for: .normal)
+        button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(onMenuButtonTap), for: .touchUpInside)
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -63,13 +74,17 @@ class TopStoriesTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func onMenuButtonTap() {
+        onTapMenuButton?(menuButton.frame)
+    }
 }
 
 // MARK: UI Related Methods
 private extension TopStoriesTableViewCell {
     
     func setup() {
-        contentView.addSubviews(collectionView, linkLabel, titleLabel, timeStampLabel)
+        contentView.addSubviews(collectionView, linkLabel, titleLabel, timeStampLabel, menuButton)
         
         NSLayoutConstraint.activate([
             // Container View
@@ -88,9 +103,16 @@ private extension TopStoriesTableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
+            // Time Stamp Label
             timeStampLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             timeStampLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            timeStampLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24)
+            timeStampLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
+            
+            // Menu Button
+            menuButton.centerYAnchor.constraint(equalTo: timeStampLabel.centerYAnchor),
+            menuButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            menuButton.heightAnchor.constraint(equalToConstant: 24),
+            menuButton.widthAnchor.constraint(equalToConstant: 24)
         ])
     }
 }
@@ -119,6 +141,6 @@ extension TopStoriesTableViewCell: UICollectionViewDelegate, UICollectionViewDat
             let startingFrame = cell.superview?.convert(cell.frame, to: nil)
         else { return }
         
-        onTap?(startingFrame)
+        onTapCell?(startingFrame)
     }
 }
