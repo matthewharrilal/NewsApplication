@@ -13,24 +13,27 @@ class MenuTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     var transitioningForward: Bool = true
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.25
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let fromViewController = transitionContext.viewController(forKey: .from),
+            transitioningForward,
             let toViewController = transitionContext.viewController(forKey: .to)
-        else { return }
+        else {
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            return
+        }
         
         let containerView = transitionContext.containerView
-        let destinationViewController = transitioningForward ? toViewController : fromViewController
+        let destinationViewController = toViewController
 
         destinationViewController.view.alpha = 0
         containerView.addSubview(destinationViewController.view)
         
         let initialFrame = CGRect(
-            x: transitioningForward ?  containerView.frame.width : 0,
-            y: transitioningForward ? containerView.frame.height / 2 : 0,
+            x: containerView.frame.width,
+            y: containerView.frame.height / 2,
             width: 0,
             height: 0
         )
