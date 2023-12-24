@@ -12,6 +12,8 @@ class MenuPresentationController: UIPresentationController {
     
     private var startingFrame: CGRect
     
+    private var tapGesture: UITapGestureRecognizer?
+    
     override func containerViewWillLayoutSubviews() {
         guard
             let containerView = containerView,
@@ -26,9 +28,25 @@ class MenuPresentationController: UIPresentationController {
         )
     }
     
+    override func presentationTransitionWillBegin() {
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissMenu))
+        containerView?.addGestureRecognizer(tapGesture!)
+    }
+    
+    override func dismissalTransitionWillBegin() {
+        // Remove tap gesture recognizer
+        tapGesture?.removeTarget(nil, action: nil)
+        containerView?.removeGestureRecognizer(tapGesture!)
+        tapGesture = nil
+    }
+    
     init(presentedViewController: UIViewController, presentingViewController: UIViewController?, startingFrame: CGRect) {
         self.startingFrame = startingFrame
 
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
+    }
+    
+    @objc func dismissMenu() {
+        presentedViewController.dismiss(animated: true)
     }
 }
