@@ -51,9 +51,10 @@ private extension MenuTableViewCell {
         
         NSLayoutConstraint.activate([
             // Title Label
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+//            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+//            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
             // Icon Image View
             iconImageView.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),

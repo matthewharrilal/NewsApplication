@@ -19,10 +19,10 @@ class MenuPresentationController: UIPresentationController {
         else { return }
         
         presentedView.frame = CGRect(
-            x: startingFrame.minX,
+            x: startingFrame.minX - containerView.bounds.width / 1.5,
             y: startingFrame.minY,
-            width: containerView.bounds.width,
-            height: containerView.bounds.height
+            width: 260,
+            height: 368
         )
     }
     

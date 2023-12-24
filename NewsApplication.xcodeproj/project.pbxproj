@@ -31,6 +31,9 @@
 		769EEA322B360844007CDCAB /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA312B360844007CDCAB /* MenuTableViewController.swift */; };
 		769EEA342B360964007CDCAB /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA332B360964007CDCAB /* MenuTableViewCell.swift */; };
 		769EEA362B374D62007CDCAB /* MenuPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA352B374D62007CDCAB /* MenuPresentationController.swift */; };
+		769EEA382B37A670007CDCAB /* DividerSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769EEA372B37A670007CDCAB /* DividerSectionHeaderView.swift */; };
+		76BA09CA2B37E8AB00A41B10 /* MenuTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BA09C92B37E8AB00A41B10 /* MenuTransitionAnimator.swift */; };
+		76BA09CC2B37E8F700A41B10 /* MenuTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BA09CB2B37E8F700A41B10 /* MenuTransitionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		769EEA312B360844007CDCAB /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		769EEA332B360964007CDCAB /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		769EEA352B374D62007CDCAB /* MenuPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresentationController.swift; sourceTree = "<group>"; };
+		769EEA372B37A670007CDCAB /* DividerSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerSectionHeaderView.swift; sourceTree = "<group>"; };
+		76BA09C92B37E8AB00A41B10 /* MenuTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTransitionAnimator.swift; sourceTree = "<group>"; };
+		76BA09CB2B37E8F700A41B10 /* MenuTransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTransitionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 				764D087C2B34EE430076C004 /* SearchTransitionAnimator.swift */,
 				764D087E2B34EFB20076C004 /* SearchTransitionDelegate.swift */,
 				769EEA352B374D62007CDCAB /* MenuPresentationController.swift */,
+				76BA09C92B37E8AB00A41B10 /* MenuTransitionAnimator.swift */,
+				76BA09CB2B37E8F700A41B10 /* MenuTransitionDelegate.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 				767354912B3269500073BB9A /* SectionHeaderView.swift */,
 				767354AA2B33C01E0073BB9A /* HomeHeaderView.swift */,
 				769EEA292B34FA8B007CDCAB /* SearchHeaderView.swift */,
+				769EEA372B37A670007CDCAB /* DividerSectionHeaderView.swift */,
 			);
 			path = "Header Views";
 			sourceTree = "<group>";
@@ -257,12 +266,15 @@
 				764D087D2B34EE430076C004 /* SearchTransitionAnimator.swift in Sources */,
 				7673547E2B31F99B0073BB9A /* HomeViewController.swift in Sources */,
 				7673549E2B334FCE0073BB9A /* UIView+Extension.swift in Sources */,
+				76BA09CA2B37E8AB00A41B10 /* MenuTransitionAnimator.swift in Sources */,
 				769EEA2A2B34FA8B007CDCAB /* SearchHeaderView.swift in Sources */,
 				7673547A2B31F99B0073BB9A /* AppDelegate.swift in Sources */,
 				769EEA362B374D62007CDCAB /* MenuPresentationController.swift in Sources */,
 				769EEA322B360844007CDCAB /* MenuTableViewController.swift in Sources */,
 				769EEA302B35118F007CDCAB /* SearchTopicTableViewCell.swift in Sources */,
+				769EEA382B37A670007CDCAB /* DividerSectionHeaderView.swift in Sources */,
 				764D087A2B34ED750076C004 /* SearchViewController.swift in Sources */,
+				76BA09CC2B37E8F700A41B10 /* MenuTransitionDelegate.swift in Sources */,
 				767354922B3269500073BB9A /* SectionHeaderView.swift in Sources */,
 				7673547C2B31F99B0073BB9A /* SceneDelegate.swift in Sources */,
 				767354A92B33B0E90073BB9A /* TopStoriesDetailViewController.swift in Sources */,

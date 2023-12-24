@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     }
     
     let searchTransitionDelegate = SearchTransitionDelegate()
+    let menuTransitionDelegate = MenuTransitionDelegate()
     
     enum Constants {
         static let newsURL: URL? = URL(string: "https://newsdata.io/api/1/news?apikey=pub_350683d632477728ccfb7555f19d1165a9524&q=volcano")
@@ -237,8 +238,8 @@ private extension HomeViewController {
 //            startingFrame: startingFrame
 //        )
         
-        searchTransitionDelegate.startingFrame = startingFrame
-        presentedViewController.transitioningDelegate = searchTransitionDelegate
+        menuTransitionDelegate.startingFrame = startingFrame
+        presentedViewController.transitioningDelegate = menuTransitionDelegate
         presentedViewController.modalPresentationStyle = .custom
         present(presentedViewController, animated: true)
     }

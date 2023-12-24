@@ -56,6 +56,16 @@ extension MenuTableViewController {
     
     private func setup() {
         tableView.register(MenuTableViewCell.self, forCellReuseIdentifier: MenuTableViewCell.identifier)
+        tableView.separatorStyle = .none
+        tableView.layer.cornerRadius = 4
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            
+        ])
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,4 +128,36 @@ extension MenuTableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let currentSection = Sections.allCases[section]
+        
+        switch currentSection {
+        case .articleOperations:
+            return nil
+        case .helpOperations, .more:
+            return DividerSectionHeaderView()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let currentSection = Sections.allCases[section]
+        
+        switch currentSection {
+        case .articleOperations:
+            return 0
+        case .helpOperations, .more:
+            return 1
+        }
+    }
+//    
+//    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        let currentSection = Sections.allCases[section]
+//        
+//        switch currentSection {
+//        case .articleOperations:
+//            return 0
+//        case .helpOperations, .more:
+//            return 1
+//        }
+//    }
 }
